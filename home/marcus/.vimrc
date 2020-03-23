@@ -123,6 +123,6 @@ let g:vim_markdown_folding_disabled = 1
 "move file backups to a separate location
 set backupdir=~/vimtmp//,.
 set directory=~/vimtmp//,.
-
+"
 let vim_markdown_preview_toggle=1
 let vim_markdown_preview_hotkey='<C-m>'
