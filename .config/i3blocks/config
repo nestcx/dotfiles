@@ -96,7 +96,7 @@ separator=false
 separator_block_width=10
 
 [ba]
-command=echo '-~'
+command=echo '~'
 separator=false
 interval=once
 separator_block_width=10

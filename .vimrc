@@ -89,7 +89,7 @@ set number
 colorscheme dracula 
 
 "turn off background colour
-"hi Normal guibg=NONE ctermbg=NONE
+hi Normal guibg=NONE ctermbg=NONE
 
 let g:airline_theme='light'
 
