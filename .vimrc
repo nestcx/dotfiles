@@ -86,10 +86,10 @@ call plug#end()
 set number
 
 "set colourscheme
-colorscheme dracula 
+colorscheme xcodelight
 
 "turn off background colour
-hi Normal guibg=NONE ctermbg=NONE
+"hi Normal guibg=NONE ctermbg=NONE
 
 let g:airline_theme='light'
 
@@ -126,3 +126,4 @@ set directory=~/vimtmp//,.
 "
 let vim_markdown_preview_toggle=1
 let vim_markdown_preview_hotkey='<C-m>'
+
