@@ -50,7 +50,9 @@ bindsym --release $mod+n exec scrot -s ~/Screenshots/%Y-%m-%d-%H-%M-%S.png
 bindsym Print exec scrot ~/Screenshots/%d-%m-%Y-%H-%M-%S.png
 
 #mod+u = ranger
-bindsym $mod+u exec xfce4-terminal -e ranger
+#bindsym $mod+u exec xfce4-terminal -e ranger
+bindsym $mod+u exec pcmanfm 
+
 
 #mod+space = dmenu
 bindsym $mod+space exec dmenu_run
