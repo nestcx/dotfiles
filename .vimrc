@@ -127,3 +127,4 @@ set directory=~/vimtmp//,.
 let vim_markdown_preview_toggle=1
 let vim_markdown_preview_hotkey='<C-m>'
 
+:set guitablabel=%t
