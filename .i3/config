@@ -70,6 +70,13 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3blocks
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3blocks
 
+#-----
+#brightness
+#
+#uses xbacklight
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+
 
 #-----
 #FLAGS
@@ -218,8 +225,12 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 for_window [class="^.*"] border pixel 4
 
 #border colour
-client.focused #ffa8f3 #ffa8f3 #ffa8f3 #ffa8f3 #ffa8f3
-
+#client.focused #ffa8f3 #ffa8f3 #ffa8f3 #ffa8f3 #ffa8f3
+# class                     border    backgr.    text     indicator
+client.focused              #ffa8f3   #ffa8f3   #333333   #d64937
+client.unfocused            #1b1b1b   #2a2a2a   #999999
+client.focused_inactive     #1b1b1b   #444444   #aaaaaa
+client.urgent               #d64937   #444444   #000000   #d64937
 
 #--------
 #i3gaps
@@ -279,17 +290,3 @@ bar {
 
 
 
-
-bindsym $mod+m mode "move" focus floating
-mode "move" {
-    bindsym $mod+Tab focus right
-
-    bindsym h     move left 1px
-    bindsym j     move down 1px
-    bindsym k     move up 1px
-    bindsym l     move right 1px
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
