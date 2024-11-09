@@ -36,6 +36,14 @@ exec --no-startup-id compton
 #xfce4-panel
 #exec --no-startup-id xfce4-panel --disable-wm-check
 
+#blueman, bluetooth
+exec --no-startup-id blueman-tray
+
+#redshift applet
+exec --no-startup-id gtk-redshift
+
+#pasystray, audio applet
+#exec --no-startup-id pasystray
 
 #--------------------
 #my program shortcuts
@@ -43,20 +51,39 @@ exec --no-startup-id compton
 #mod+t = terminal
 bindsym $mod+t exec xfce4-terminal.wrapper
 
-#mod+n = scrot
-bindsym --release $mod+n exec scrot -s ~/Screenshots/%Y-%m-%d-%H-%M-%S.png
+#mod+n = scrot + save to clipboard
+#bindsym --release $mod+n exec scrot -s ~/Screenshots/%Y-%m-%d-%H-%M-%S.png -e 'xclip -selection clipboard -t "image/png" < $f'
+bindsym --release $mod+n exec gnome-screenshot -ac
+bindsym --release $mod+m exec gnome-screenshot -af /home/marcus/Documents/Screenshots/$(date '+%-d-%-m-%Y_%I:%M:%S').png
 
 #printscreen = scrot fullscreen
-bindsym Print exec scrot ~/Screenshots/%d-%m-%Y-%H-%M-%S.png
+bindsym Print exec gnome-screenshot -wf /home/marcus/Documents/Screenshots/$(date '+%-d-%-m-%Y_%I:%M:%S').png
 
 #mod+u = ranger
 #bindsym $mod+u exec xfce4-terminal -e ranger
 bindsym $mod+u exec pcmanfm 
+bindsym $mod+i exec sudo pcmanfm
 
 
-#mod+space = dmenu
-bindsym $mod+space exec dmenu_run
+#mod+space = rofi 
+#bindsym $mod+space exec dmenu_run
+bindsym $mod+space exec rofi -show run 
 
+
+#empty program
+bindsym $mod+p exec i3-msg open
+
+#mod+c = chrome
+bindsym $mod+c exec google-chrome
+
+#mod+x = session logout dialog
+bindsym $mod+x exec xfce4-session-logout
+
+#mod+m = redshift slider bash script
+bindsym $mod+Shift+m exec --no-startup-id ~/sc.sh
+
+#mod+o = obsidian
+bindsym $mod+o exec /home/marcus/Documents/stuff/Obsidian-1.7.4.AppImage
 
 #-----
 #audio
@@ -74,8 +101,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 #brightness
 #
 #uses xbacklight
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5 
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5 
 
 
 #-----
@@ -222,7 +249,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 #aesthetics
 #----------
 #border thickness for window regex
-for_window [class="^.*"] border pixel 4
+for_window [class="^.*"] border pixel 2
 
 #border colour
 #client.focused #ffa8f3 #ffa8f3 #ffa8f3 #ffa8f3 #ffa8f3
@@ -282,11 +309,6 @@ mode "$mode_gaps_outer" {
 #--------
 bar {
     status_command i3blocks
-    position top
+    position bottom 
 }
-
-
-
-
-
 
